@@ -19,11 +19,14 @@ app.post('/insert', (request, response) => {
 });
 
 // read
-app.get('/getAll', (request, response) => {
-   response.json({
-     success: true
-   });
-})
+// app.get('/getAll', (request, response) => {
+//   db.messages.get()
+//    response.json({
+//      success: true
+//    });
+// })
+
+app.get('/getAll', db.getAll);
 
 
 app.listen(process.env.PORT, () => console.log('app is running'));

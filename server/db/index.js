@@ -1,10 +1,5 @@
 var mysql = require('mysql');
 
-// Create a database connection and export it from this file.
-// You will need to connect with the user "root", no password,
-// and to the database "chat".
-
-
 module.exports.dbConnection = mysql.createConnection({
   host: 'localhost', // new line added
   user: 'root',
@@ -21,13 +16,40 @@ module.exports.dbConnection.connect((err) => {
   }
 });
 
+
+    module.exports.getAll = () => {
+      module.exports.dbConnection.query('SELECT * FROM todo', (err, results) => {
+        if (err) {
+          console.log(err);
+        } else {
+          console.log(results);
+        }
+      });
+    }
+
+
+// module.exports = {
+//   messages: {
+//     get: function (callback) {
+//       db.query('SELECT * FROM todo', (err, results) => {
+//         if (err) {
+//           console.log(err);
+//         } else {
+//           callback(null, results);
+//         }
+//       });
+//     }
+//   }
+// }
+
+
+
+
 // module.exports.dbConnection.query(`INSERT INTO todo (item) values ('heyyy');`, function (err, rows, fields) {
 //   if (err) throw err
 
 //   console.log('BRAVOOOOOOO !!!!');
 // });
-
-
 
 
 
