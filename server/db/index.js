@@ -17,12 +17,12 @@ module.exports.dbConnection.connect((err) => {
 });
 
 
-    module.exports.getAll = () => {
+    module.exports.getAll = (cb) => {
       module.exports.dbConnection.query('SELECT * FROM todo', (err, results) => {
         if (err) {
           console.log(err);
         } else {
-          console.log(results);
+          cb(null,results);
         }
       });
     }

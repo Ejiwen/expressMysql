@@ -25,7 +25,14 @@ app.get('/getAll', (request, response) => {
   //    success: true
   //  });
   //response.send('hey');
-  response.json('hey');
+  //response.json('hey');
+  db.getAll((err, data) => {
+    if(err) {
+      console.log('Error');
+    } else {
+      response.json(data);
+    }
+  });
 })
 
 //app.get('/getAll', db.getAll);
