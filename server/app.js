@@ -18,7 +18,9 @@ app.post('/insert', (request, response) => {
 
 // read
 app.get('/getAll', (request, response) => {
-   console.log("HEYYY !!!");
+   response.json({
+     success: true
+   });
 })
 
 
